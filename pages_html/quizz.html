@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizz Informatique</title>
+    <link rel="stylesheet" href="../pages_css/quizz.css">
+</head>
+<body>
+
+<header>
+    <h1>Quizz Informatique et Développement Web</h1>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours académique</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="stages.html">Stages</a></li>
+            <li><a href="manifestations.html">Formations</a></li>
+            <li><a href="matieres.html">Matières</a></li>
+            <li><a href="passions.html">Passions</a></li>
+            <li><a href="quizz.html">Quizz</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="temoignages.html">Témoignages</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+function verifierQuizz() {
+    const reponsesCorrectes = {
+        q1: "JavaScript",
+        q2: "NestJS",
+        q3: "Régression linéaire",
+        q4: "Angular",
+        q5: "Réseaux de neurones",
+        q6: "MySQL",
+        q7: "PL/SQL",
+        q8: "Angular",
+        q9: "Détection d’objets",
+        q10: "Scrum"
+    };
+
+    let score = 0;
+    let details = "<h3>Réponses correctes :</h3><ul>";
+
+    let i = 1; 
+    for (let q in reponsesCorrectes) {
+        const reponseUser = document.querySelector('input[name="'+q+'"]:checked');
+
+        if (!reponseUser) {
+            alert("Veuillez répondre à toutes les questions avant de valider !");
+            return;
+        }
+
+        if (reponseUser.value === reponsesCorrectes[q]) score++;
+
+        details += `<li><strong>Question ${i}</strong> → ${reponsesCorrectes[q]}</li>`;
+        i++;
+    }
+
+    details += "</ul>";
+    document.getElementById("resultat").innerHTML = `<h2>Votre score : ${score}/10</h2>${details}`;
+}
+function reinitialiserQuizz() {
+    document.getElementById("quizzForm").reset();
+    document.getElementById("resultat").innerHTML = "";
+}
+
+</script>
+
+<main>
+    <section class="quizz">
+        <form id="quizzForm">
+
+            <!-- Question 1 -->
+            <div class="question" data-question="Quel langage est principalement utilisé pour le développement front-end ?">
+                <p>1. Quel langage est principalement utilisé pour le développement front-end ?</p>
+                <input type="radio" name="q1" value="Python"> Python<br>
+                <input type="radio" name="q1" value="JavaScript"> JavaScript<br>
+                <input type="radio" name="q1" value="SQL"> SQL<br>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" data-question="Quel framework est utilisé pour construire des applications côté serveur en Node.js ?">
+                <p>2. Quel framework est utilisé pour construire des applications côté serveur en Node.js ?</p>
+                <input type="radio" name="q2" value="Angular"> Angular<br>
+                <input type="radio" name="q2" value="Django"> Django<br>
+                <input type="radio" name="q2" value="NestJS"> NestJS<br>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" data-question="Quel algorithme est utilisé pour l’apprentissage supervisé en machine learning ?">
+                <p>3. Quel algorithme est utilisé pour l’apprentissage supervisé en machine learning ?</p>
+                <input type="radio" name="q3" value="Régression linéaire"> Régression linéaire<br>
+                <input type="radio" name="q3" value="K-Means"> K-Means<br>
+                <input type="radio" name="q3" value="PCA"> PCA<br>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" data-question="Quelle technologie permet de créer des interfaces interactives côté client ?">
+                <p>4. Quelle technologie permet de créer des interfaces interactives côté client ?</p>
+                <input type="radio" name="q4" value="CSS"> CSS<br>
+                <input type="radio" name="q4" value="Angular"> Angular<br>
+                <input type="radio" name="q4" value="SQL"> SQL<br>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" data-question="Le Deep Learning est basé sur :">
+                <p>5. Le Deep Learning est basé sur :</p>
+                <input type="radio" name="q5" value="Réseaux de neurones"> Réseaux de neurones<br>
+                <input type="radio" name="q5" value="Arbres de décision"> Arbres de décision<br>
+                <input type="radio" name="q5" value="SGBD"> SGBD<br>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question" data-question="Quelle est la base de données relationnelle la plus connue ?">
+                <p>6. Quelle est la base de données relationnelle la plus connue ?</p>
+                <input type="radio" name="q6" value="MySQL"> MySQL<br>
+                <input type="radio" name="q6" value="MongoDB"> MongoDB<br>
+                <input type="radio" name="q6" value="Firebase"> Firebase<br>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question" data-question="Quel langage est utilisé pour manipuler des bases de données relationnelles ?">
+                <p>7. Quel langage est utilisé pour manipuler des bases de données relationnelles ?</p>
+                <input type="radio" name="q7" value="PL/SQL"> PL/SQL<br>
+                <input type="radio" name="q7" value="Python"> Python<br>
+                <input type="radio" name="q7" value="HTML"> HTML<br>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question" data-question="Quel framework front-end utilise TypeScript ?">
+                <p>8. Quel framework front-end utilise TypeScript ?</p>
+                <input type="radio" name="q8" value="Angular"> Angular<br>
+                <input type="radio" name="q8" value="React"> React<br>
+                <input type="radio" name="q8" value="Bootstrap"> Bootstrap<br>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question" data-question="Qu’est-ce que Roboflow permet de faire ?">
+                <p>9. Qu’est-ce que Roboflow permet de faire ?</p>
+                <input type="radio" name="q9" value="Détection d’objets"> Détection d’objets<br>
+                <input type="radio" name="q9" value="Gestion de base de données"> Gestion de base de données<br>
+                <input type="radio" name="q9" value="Création de site web statique"> Création de site web statique<br>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question" data-question="Quelle méthode agile est couramment utilisée pour gérer un projet informatique ?">
+                <p>10. Quelle méthode agile est couramment utilisée pour gérer un projet informatique ?</p>
+                <input type="radio" name="q10" value="Scrum"> Scrum<br>
+                <input type="radio" name="q10" value="Cascade"> Cascade<br>
+                <input type="radio" name="q10" value="Waterfall"> Waterfall<br>
+            </div>
+
+            <button type="button" onclick="verifierQuizz()">Valider</button>
+            <button type="button" onclick="reinitialiserQuizz()">Réinitialiser</button>
+        </form>
+
+        <div id="resultat"></div>
+    </section>
+</main>
+
+   <footer>
+        <p>© 2025 - Meryam Abid</p>
+        <div class="social">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="../images/instagram.png" alt="instagram">
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="../images/facebook.png" alt="facebook">
+            </a>
+            <a href="https://github.com" target="_blank">
+                <img src="../images/github.png" alt="github">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
